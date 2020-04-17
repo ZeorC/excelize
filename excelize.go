@@ -195,6 +195,9 @@ func checkSheet(xlsx *xlsxWorksheet) {
 	}
 	sheetData := xlsxSheetData{Row: make([]xlsxRow, row)}
 	for _, r := range xlsx.SheetData.Row {
+        if r.R == 0 {
+            r.R = 1
+        }
 		sheetData.Row[r.R-1] = r
 	}
 	for i := 1; i <= row; i++ {
